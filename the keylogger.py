@@ -1,6 +1,6 @@
 from abc import ABC
 from typing import list
-from pynut import keyboard
+from pynput import keyboard
 
 class Ikeylogger(ABC):
     def __init__(self):
