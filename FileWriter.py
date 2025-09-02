@@ -8,8 +8,8 @@ class IWriter:
 	def send_data(self, data: str, machine_name: str) -> None:
 		with open(self.file_name, 'a') as file:
 			file.write(f'****{self.time_taker()}****\n')
-			file.write(f'****{machine_name}****\n')
-			file.write(f'{data}\n')
+			file.write(f'****{machine_name}****\n\n')
+			file.write(f'{data}\n\n\n')
 
 	@staticmethod
 	def time_taker():
