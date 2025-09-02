@@ -1,7 +1,7 @@
 import datetime
+from iwriter import IWriter
 
-
-class IWriter:
+class FileWriter(IWriter):
 	def __init__(self, file_name: str):
 		self.file_name = file_name
 
