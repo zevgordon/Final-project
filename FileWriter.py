@@ -15,3 +15,7 @@ class FileWriter(IWriter):
 	def time_taker():
 		now = datetime.datetime.now()
 		return now.strftime("%H:%M:%S--%d/%m/%Y")
+
+if __name__ == '__main__':
+	file_writer = FileWriter('log.txt')
+	file_writer.send_data("asd", 'my computer')
