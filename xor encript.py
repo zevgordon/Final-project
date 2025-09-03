@@ -1,19 +1,21 @@
-
 import base64
 
-cypher = 123
-stringToEncrypt = "this is a normal string"
+with open('cood.txt', 'r') as f:
+    cood = f.read()
 
-strList = [chr(ord(stringToEncrypt[i]) ^ cypher) for i in range(len(stringToEncrypt))]
+class Encryption:
 
-strList = (base64.b64encode("".join(strList).encode()).decode())
-print(strList)
+    @staticmethod
+    def encryption_xor(stringToEncrypt):
+        cypher = cood
+        cypher = [(ord(cypher[i])) for i in range(len(cypher))]
 
-#להחזיר את ההצפנה
-newString = base64.b64decode(strList)
+        repeated_cypher = cypher * (len(stringToEncrypt) // len(cypher)) + cypher[:len(stringToEncrypt)]
 
-newLst = []
+        strList = [chr(ord(x) ^ y) for x , y  in zip(stringToEncrypt , repeated_cypher)]
 
-for i in range(len(newString)):
-    newLst.append(chr(newString[i] ^ cypher))
-print("".join(newLst))
+        strList = (base64.b64encode("".join(strList).encode()).decode())
+        return strList
+
+A = Encryption.encryption_xor("yossef")
+print(A)
