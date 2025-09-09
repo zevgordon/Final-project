@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Control Panel</title>
+    <link rel="stylesheet" href="final_project.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>CyberPanel</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Machines</a></li>
+                <li><a href="#">Logs</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>KeyLoעger Dashbord</h1>
+            <p>Monitor machines and inspect keystrokes</p>
+        </header>
+
+        <!-- Machine Selector -->
+        <section class="feature">
+            <h2>Select Machine 💻</h2>
+            <select id="machineDropdown">
+                <option value="">-- Choose a machine --</option>
+            </select>
+            <p class="selection">Selected Machine: <span id="selectedMachine">None</span></p>
+        </section>
+
+        <!-- Logs Display -->
+        <section class="logs">
+            <h2>Keystrokes Logs</h2>
+            <div id="logsContainer">
+                <p>Select a machine to view logs</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="final_project.css"></script>
+</body>
+</html>
