@@ -1,0 +1,115 @@
+/* styles.css */
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1e1e2e;
+  color: #ddd;
+  text-align: right; /* Align text on the right for RTL */
+  line-height: 1.6;
+  direction: rtl;
+}
+
+header {
+  background: #28293d;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  color: #4caf50;
+}
+nav a {
+  color: #ccc;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #fff;
+}
+
+/* Introduction */
+#home {
+  padding: 40px 20px;
+  background: #212136;
+}
+
+/* Products grid */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to new lines on narrow screens */
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+.product-card {
+  background: #2c2f41;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+.product-card h3 {
+  margin-top: 0;
+  color: #4caf50;
+}
+.product-card p {
+  font-size: 0.9em;
+}
+.add-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.add-btn:hover {
+  background: #45a049;
+}
+
+/* Hover effect on cards */
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+}
+
+/* Download section */
+#download {
+  padding: 40px 20px;
+  background: #28293d;
+  text-align: center;
+}
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.download-btn:hover {
+  background: #45a049;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: #212136;
+  text-align: center;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+/* Responsive tweak (optional) */
+@media (max-width: 600px) {
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
